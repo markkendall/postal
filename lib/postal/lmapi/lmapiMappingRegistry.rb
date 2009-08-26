@@ -1,6 +1,6 @@
 # Maps the Lyris data model to XML instance
 
-require File.expand_path('lib/postal/lmapi/lmapi.rb')
+ #require File.expand_path('lib/postal/lmapi/lmapi.rb')
 require 'soap/mapping'
 
 module LmapiMappingRegistry

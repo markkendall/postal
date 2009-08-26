@@ -3,5 +3,5 @@
 coverage
 rdoc
 pkg
-test/run.rb
-run.rb
+test/run*.rb
+run*.rb

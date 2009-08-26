@@ -1,7 +1,8 @@
 # Main class used by client programs
 
-require File.expand_path('lib/postal/lmapi/lmapi.rb')
-require File.expand_path('lib/postal/lmapi/lmapiMappingRegistry.rb')
+# require File.expand_path('lib/postal/lmapi/lmapi.rb')
+# require File.expand_path('lib/postal/lmapi/lmapiMappingRegistry.rb')
+gem 'soap4r'
 require 'soap/rpc/driver'
 
 class LmapiSoap < ::SOAP::RPC::Driver

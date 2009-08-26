@@ -2,7 +2,7 @@
 
 # Sample client
 
-require 'lmapiDriver.rb'
+# require 'lmapiDriver.rb'
 
 endpoint_url = ARGV.shift
 obj = LmapiSoap.new(endpoint_url)
