@@ -1,6 +1,16 @@
-= postal
+= Introduction
 
 Description goes here.
+
+== Installation
+
+
+
+== Thanks
+
+Special thanks to this article: http://markthomas.org/2007/09/12/getting-started-with-soap4r/
+Mark details how to use SOAP4R (for which there is very little documentation in the world) and
+his example includes talking to Lyris! Postal probably couldn't have happened without his article.
 
 == Note on Patches/Pull Requests
  

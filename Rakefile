@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "postal"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Gem for talking to the Lyris API}
+    gem.description = %Q{Lyris is an enterprise email service. Postal makes it easy for Ruby to talk to Lyris's API.}
     gem.email = "cannikinn@gmail.com"
     gem.homepage = "http://github.com/cannikin/postal"
     gem.authors = ["Rob Cameron"]
