@@ -6,6 +6,7 @@ require 'logger'
 # internal
 Dir.glob(File.expand_path('lib/postal/lmapi/*')).each { |path| require File.expand_path(path) }
 require 'postal/driver'
+require 'postal/base'
 require 'postal/list'
 require 'postal/member'
 

@@ -1,19 +1,7 @@
 module Postal
-  class List
+  class List < Postal::Base
     
     class << self
-      
-      def find(*args)
-        options = extract_options(args)
-        case args.first
-        when :all then  find_all(options)
-        else            find_some(args,options)
-        end
-      end
-      
-      def all
-        find(:all)
-      end
       
       protected
      
@@ -33,25 +21,6 @@ module Postal
         def extract_options(opts)
           opts.last.is_a?(::Hash) ? opts.pop : {}
         end
-      
-    end
-    
-    
-    # Create a new list
-    def initialize
-      
-    end
-    
-    
-    # Make a new list and immediately save to Lyris
-    def create(*args)
-      instance = self.initialize(args)
-      instance.save
-    end
-    
-    
-    # Save the list to Lyris
-    def save
       
     end
     

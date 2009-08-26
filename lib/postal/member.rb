@@ -1,43 +1,65 @@
 module Postal
-  class Member
+  class Member < Postal::Base
     
     class << self
       
-      # Make a new user and immediately save to Lyris
-      def create(*args)
-        instance = self.new(*args)
-        instance.save
-      end
+      protected
+      
+        def find_by_email(args,options)
+          list = get_list_name(args.last)
+          member_id = 0
+          email = args.first
+          return Postal.driver.getMemberID(SimpleMemberStruct.new(list,member_id,email))
+        end
       
       
-      # Make a new user and immediately save to Lyris, but throw an error if the save fails.
-      def create!(*args)
-        instance = self.new(*args)
-        instance.save!
-      end
-  
+        def find_by_id(args,options)
+          member_id = args.first
+          return Postal.driver.getEmailFromMemberID(member_id)
+        end
+      
+      
+        # Find one or more members by name
+        def find_some(args,options={})
+          case args.first
+          when ::String
+            find_by_email(args,options)
+          when ::Fixnum
+            find_by_id(args,options)
+          when ::Hash
+            find_some(args,options)
+          end
+        end
+        
+      private
+      
+        def get_list_name(obj)
+          case obj
+          when ArrayOfListStruct
+            return obj.first.listName
+          else
+            return obj
+          end
+        end
+      
     end
     
     
-    attr_accessor :email, :name, :list
+    attr_accessor :email, :name, :list, :demographics
     
     # Create a new member instance
-    def initialize(email,name,list)
+    def initialize(email,name,list,demographics={})
       @email = email
       @name = name
       @list = list
+      @demographics = demographics
     end
     
     
     # Save the member to Lyris and returns the member ID that was created. Returns `false` if the save fails.
     def save
       # if @list is a list Object then get the name out (all Lyris wants is the name)
-      case @list
-      when ArrayOfListStruct
-        list = @list.first.listName
-      else
-        list = @list
-      end
+      list = Member.get_list_name(@list)
       begin
         return Postal.driver.createSingleMember(@email, @name, list)
       rescue SOAP::FaultError
