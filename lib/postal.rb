@@ -9,13 +9,15 @@ require 'postal/driver'
 require 'postal/base'
 require 'postal/list'
 require 'postal/member'
+require 'postal/mailing'
 
 module Postal
   
   # error classes
-  class CouldNotCreateMember < StandardError
-  end
-  
+  class CouldNotCreateMember < StandardError; end;
+  class CouldNotUpdateMember < StandardError; end;
+  class CouldNotSendMailing < StandardError; end;
+  class WouldDeleteAllMembers < StandardError; end;
   
   VERSION = '0.1.0'
   LOGGER = Logger.new(STDOUT)

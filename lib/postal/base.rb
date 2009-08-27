@@ -31,13 +31,28 @@ module Postal
         instance = self.new(*args)
         instance.save!
       end
+      
+      
+      # returns the list name for a list whether it's a string or list object
+      def get_list_name(obj)
+        case obj
+        when ArrayOfListStruct
+          return obj.first.listName
+        else
+          return obj
+        end
+      end
+      
+
+
 
       private
       
         def extract_options(opts)
           opts.last.is_a?(::Hash) ? opts.pop : {}
         end
-      
+        
+        
     end
     
   end

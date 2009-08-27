@@ -3,6 +3,22 @@ module Postal
     
     class << self
       
+      def find_by_filter(args)
+        return Postal.driver.selectMembers(args)
+      end
+      
+      
+      def destroy(args)
+        raise Postal::WouldDeleteAllMembers, 'Not passing any parameters (other than ListName) to this method will delete ALL members of a list. If you really want to delete all members of this list, use destroy! instead.' if args.to_a.size == 1 && args.to_a.first.match(/ListName/)
+        return Postal.driver.deleteMembers(args)
+      end
+      
+      
+      def destroy!(args)
+        return Postal.driver.deleteMembers(args)
+      end
+      
+      
       protected
       
         def find_by_email(args,options)
@@ -17,38 +33,30 @@ module Postal
           member_id = args.first
           return Postal.driver.getEmailFromMemberID(member_id)
         end
-      
+        
       
         # Find one or more members by name
         def find_some(args,options={})
+          puts args.first.class
           case args.first
           when ::String
             find_by_email(args,options)
           when ::Fixnum
             find_by_id(args,options)
-          when ::Hash
-            find_some(args,options)
-          end
-        end
-        
-      private
-      
-        def get_list_name(obj)
-          case obj
-          when ArrayOfListStruct
-            return obj.first.listName
-          else
-            return obj
+          when nil
+            find_by_struct(options)
           end
         end
       
     end
     
+    DEFAULT_ATTRIBUTES = { :id => nil, :email => nil, :name => nil, :list => nil, :demographics => nil }
     
-    attr_accessor :email, :name, :list, :demographics
+    attr_accessor :id, :email, :name, :list, :demographics
     
     # Create a new member instance
     def initialize(email,name,list,demographics={})
+      @id = nil
       @email = email
       @name = name
       @list = list
@@ -61,9 +69,11 @@ module Postal
       # if @list is a list Object then get the name out (all Lyris wants is the name)
       list = Member.get_list_name(@list)
       begin
-        return Postal.driver.createSingleMember(@email, @name, list)
-      rescue SOAP::FaultError
-        return false
+        @id = Postal.driver.createSingleMember(@email, @name, list)
+        update_attributes(@demographics) unless @demographics.empty?
+        return @id
+      #rescue SOAP::FaultError
+      #  return false
       end
     end
     
@@ -74,6 +84,25 @@ module Postal
         return id
       else
         raise Postal::CouldNotCreateMember, 'Could not create a new member. The most likely cause is that the specified list already contains this email address.'
+      end
+    end
+    
+    
+    # Update the demographics for a user
+    def update_attributes(attributes={})
+      list = Member.get_list_name(@list)
+      demos = attributes.collect { |key,value| { key => value } }
+      member = SimpleMemberStruct.new(list, @id, @email)
+      return Postal.driver.updateMemberDemographics(member,demos)
+    end
+    
+    
+    # Throw an error if demographics couldn't be saved
+    def update_attributes!(attributes={})
+      if update_attributes(attributes)
+        return true
+      else
+        raise Postal::CouldNotUpdateMember, 'Could not update the member. The most likely cause is that your demographics are invalid.'
       end
     end
     
