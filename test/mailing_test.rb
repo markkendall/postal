@@ -13,7 +13,7 @@ class MailingTest < Test::Unit::TestCase
                                 :html_message => "<p>Test from Postal at #{Time.now.to_s}</p>", 
                                 :text_message => 'Test from Postal at #{Time.now.to_s}', 
                                 :from => @config['from'],
-                                :list => @config['list'],
+                                :list_name => @config['list_name'],
                                 :subject => 'postal_test.rb')
     assert mail.valid?
     assert mail.send
@@ -25,7 +25,7 @@ class MailingTest < Test::Unit::TestCase
                                 :text_message => 'Test from Postal at #{Time.now.to_s}', 
                                 :from => @config['from'] )
     assert !mail.valid?
-    mail.list = @config['list']
+    mail.list_name = @config['list_name']
     assert !mail.valid?
     mail.subject = 'postal_test.rb'
     assert mail.valid?

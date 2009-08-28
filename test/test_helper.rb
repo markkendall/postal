@@ -16,7 +16,7 @@ class Test::Unit::TestCase
   end
   
   def delete_test_members
-    Postal::Member.destroy(["ListName=#{@config['list']}",'EmailAddress like john.doe%'])
+    Postal::Member.destroy(["ListName=#{@config['list_name']}",'EmailAddress like john.doe%'])
   end
   
 end

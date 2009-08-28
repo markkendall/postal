@@ -11,8 +11,8 @@ module Postal
       NsNs1Xsd = "http://tempuri.org/ns1.xsd"
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::SimpleMailingStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SimpleMailingStruct"),
+        :class => SimpleMailingStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SimpleMailingStruct"),
         :schema_element => [
           ["subject", ["SOAP::SOAPString", XSD::QName.new(nil, "Subject")], [0, 1]],
           ["isHtmlSectionEncoded", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "IsHtmlSectionEncoded")], [0, 1]],
@@ -31,8 +31,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MessageStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MessageStruct"),
+        :class => MessageStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MessageStruct"),
         :schema_element => [
           ["recipientEmailsIn", ["Postal::Lmapi::ArrayOfstring", XSD::QName.new(nil, "RecipientEmailsIn")], [0, 1]],
           ["recipientMemberIDsIn", ["Postal::Lmapi::ArrayOfint", XSD::QName.new(nil, "RecipientMemberIDsIn")], [0, 1]],
@@ -44,8 +44,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::DocPart,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::DocPart"),
+        :class => DocPart,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "DocPart"),
         :schema_element => [
           ["body", ["SOAP::SOAPString", XSD::QName.new(nil, "Body")], [0, 1]],
           ["mimePartName", ["SOAP::SOAPString", XSD::QName.new(nil, "MimePartName")], [0, 1]],
@@ -55,8 +55,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ContentStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ContentStruct"),
+        :class => ContentStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ContentStruct"),
         :schema_element => [
           ["headerTo", ["SOAP::SOAPString", XSD::QName.new(nil, "HeaderTo")], [0, 1]],
           ["isTemplate", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "IsTemplate")], [0, 1]],
@@ -75,8 +75,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::UrlTrackingStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::UrlTrackingStruct"),
+        :class => UrlTrackingStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "UrlTrackingStruct"),
         :schema_element => [
           ["uniqueOpens", ["SOAP::SOAPString", XSD::QName.new(nil, "UniqueOpens")], [0, 1]],
           ["opens", ["SOAP::SOAPString", XSD::QName.new(nil, "Opens")], [0, 1]],
@@ -85,8 +85,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MemberStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberStruct"),
+        :class => MemberStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberStruct"),
         :schema_element => [
           ["additional", ["SOAP::SOAPString", XSD::QName.new(nil, "Additional")], [0, 1]],
           ["membershipKind", ["Postal::Lmapi::MemberKindEnum", XSD::QName.new(nil, "MembershipKind")], [0, 1]],
@@ -122,8 +122,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::CharSetStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::CharSetStruct"),
+        :class => CharSetStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "CharSetStruct"),
         :schema_element => [
           ["description", ["SOAP::SOAPString", XSD::QName.new(nil, "Description")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]],
@@ -132,8 +132,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::TinyMemberStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TinyMemberStruct"),
+        :class => TinyMemberStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "TinyMemberStruct"),
         :schema_element => [
           ["fullName", ["SOAP::SOAPString", XSD::QName.new(nil, "FullName")], [0, 1]],
           ["emailAddress", ["SOAP::SOAPString", XSD::QName.new(nil, "EmailAddress")], [0, 1]]
@@ -141,8 +141,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MailingStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailingStruct"),
+        :class => MailingStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MailingStruct"),
         :schema_element => [
           ["enableRecency", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "EnableRecency")], [0, 1]],
           ["isHtmlSectionEncoded", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "IsHtmlSectionEncoded")], [0, 1]],
@@ -175,8 +175,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::SegmentStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SegmentStruct"),
+        :class => SegmentStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SegmentStruct"),
         :schema_element => [
           ["segmentID", ["SOAP::SOAPInt", XSD::QName.new(nil, "SegmentID")], [0, 1]],
           ["segmentName", ["SOAP::SOAPString", XSD::QName.new(nil, "SegmentName")], [0, 1]],
@@ -197,8 +197,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::TrackingSummaryStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TrackingSummaryStruct"),
+        :class => TrackingSummaryStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "TrackingSummaryStruct"),
         :schema_element => [
           ["transientFailure", ["SOAP::SOAPInt", XSD::QName.new(nil, "TransientFailure")], [0, 1]],
           ["success", ["SOAP::SOAPInt", XSD::QName.new(nil, "Success")], [0, 1]],
@@ -225,8 +225,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::SimpleMemberStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SimpleMemberStruct"),
+        :class => SimpleMemberStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SimpleMemberStruct"),
         :schema_element => [
           ["listName", ["SOAP::SOAPString", XSD::QName.new(nil, "ListName")], [0, 1]],
           ["memberID", ["SOAP::SOAPInt", XSD::QName.new(nil, "MemberID")], [0, 1]],
@@ -235,8 +235,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::KeyValueType,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::KeyValueType"),
+        :class => KeyValueType,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "KeyValueType"),
         :schema_element => [
           ["value", ["SOAP::SOAPString", XSD::QName.new(nil, "Value")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]]
@@ -244,8 +244,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ListStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ListStruct"),
+        :class => ListStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ListStruct"),
         :schema_element => [
           ["sMTPHeaders", ["SOAP::SOAPString", XSD::QName.new(nil, "SMTPHeaders")], [0, 1]],
           ["errHold", ["SOAP::SOAPInt", XSD::QName.new(nil, "ErrHold")], [0, 1]],
@@ -355,8 +355,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MemberBanStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberBanStruct"),
+        :class => MemberBanStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberBanStruct"),
         :schema_element => [
           ["domain", ["SOAP::SOAPString", XSD::QName.new(nil, "Domain")], [0, 1]],
           ["userName", ["SOAP::SOAPString", XSD::QName.new(nil, "UserName")], [0, 1]],
@@ -367,8 +367,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::TopicStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TopicStruct"),
+        :class => TopicStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "TopicStruct"),
         :schema_element => [
           ["topicName", ["SOAP::SOAPString", XSD::QName.new(nil, "TopicName")], [0, 1]],
           ["topicDescription", ["SOAP::SOAPString", XSD::QName.new(nil, "TopicDescription")], [0, 1]],
@@ -378,8 +378,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::SiteStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SiteStruct"),
+        :class => SiteStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SiteStruct"),
         :schema_element => [
           ["siteID", ["SOAP::SOAPInt", XSD::QName.new(nil, "SiteID")], [0, 1]],
           ["siteName", ["SOAP::SOAPString", XSD::QName.new(nil, "SiteName")], [0, 1]],
@@ -390,8 +390,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::PreviewStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::PreviewStruct"),
+        :class => PreviewStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "PreviewStruct"),
         :schema_element => [
           ["textToMerge", ["SOAP::SOAPString", XSD::QName.new(nil, "TextToMerge")], [0, 1]],
           ["memberID", ["SOAP::SOAPInt", XSD::QName.new(nil, "MemberID")], [0, 1]],
@@ -400,8 +400,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ServerAdminStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ServerAdminStruct"),
+        :class => ServerAdminStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ServerAdminStruct"),
         :schema_element => [
           ["adminID", ["SOAP::SOAPInt", XSD::QName.new(nil, "AdminID")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]],
@@ -411,8 +411,8 @@ module Postal
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::SiteAdminStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SiteAdminStruct"),
+        :class => SiteAdminStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SiteAdminStruct"),
         :schema_element => [
           ["adminID", ["SOAP::SOAPInt", XSD::QName.new(nil, "AdminID")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]],
@@ -426,49 +426,49 @@ module Postal
         Postal::Lmapi::ArrayOfDocPart,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::DocPart") }
+        { :type => XSD::QName.new(NsNs1Xsd, "DocPart") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfSimpleMemberStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SimpleMemberStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "SimpleMemberStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfCharSetStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::CharSetStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "CharSetStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfKeyValueType,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::KeyValueType") }
+        { :type => XSD::QName.new(NsNs1Xsd, "KeyValueType") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfListStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ListStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "ListStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfMailingStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailingStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "MailingStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfSegmentStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SegmentStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "SegmentStruct") }
       )
 
       EncodedRegistry.set(
@@ -482,7 +482,7 @@ module Postal
         Postal::Lmapi::ArrayOfTrackingSummaryStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TrackingSummaryStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "TrackingSummaryStruct") }
       )
 
       EncodedRegistry.set(
@@ -496,21 +496,21 @@ module Postal
         Postal::Lmapi::ArrayOfMemberStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "MemberStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfTinyMemberStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TinyMemberStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "TinyMemberStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfMemberBanStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberBanStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "MemberBanStruct") }
       )
 
       EncodedRegistry.set(
@@ -524,166 +524,166 @@ module Postal
         Postal::Lmapi::ArrayOfSimpleMailingStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SimpleMailingStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "SimpleMailingStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfContentStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ContentStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "ContentStruct") }
       )
 
       EncodedRegistry.set(
         Postal::Lmapi::ArrayOfUrlTrackingStruct,
         ::SOAP::SOAPArray,
         ::SOAP::Mapping::EncodedRegistry::TypedArrayFactory,
-        { :type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::UrlTrackingStruct") }
+        { :type => XSD::QName.new(NsNs1Xsd, "UrlTrackingStruct") }
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::LicenseLevelEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::LicenseLevelEnum")
+        :class => LicenseLevelEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "LicenseLevelEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ListTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ListTypeEnum")
+        :class => ListTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ListTypeEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MriVisibilityEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MriVisibilityEnum")
+        :class => MriVisibilityEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MriVisibilityEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MemberStatusEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberStatusEnum")
+        :class => MemberStatusEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberStatusEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MessageTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MessageTypeEnum")
+        :class => MessageTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MessageTypeEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ModeratedEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ModeratedEnum")
+        :class => ModeratedEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ModeratedEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ConferenceVisibilityEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConferenceVisibilityEnum")
+        :class => ConferenceVisibilityEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConferenceVisibilityEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ConferencePostEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConferencePostEnum")
+        :class => ConferencePostEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConferencePostEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ConferenceDurationEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConferenceDurationEnum")
+        :class => ConferenceDurationEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConferenceDurationEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ConfirmUnsubEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConfirmUnsubEnum")
+        :class => ConfirmUnsubEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConfirmUnsubEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::PasswordRequiredEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::PasswordRequiredEnum")
+        :class => PasswordRequiredEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "PasswordRequiredEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MemberListSecurityEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberListSecurityEnum")
+        :class => MemberListSecurityEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberListSecurityEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::RecencyOperatorEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::RecencyOperatorEnum")
+        :class => RecencyOperatorEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "RecencyOperatorEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MemberKindEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberKindEnum")
+        :class => MemberKindEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberKindEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::NewSubscriberPolicyEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::NewSubscriberPolicyEnum")
+        :class => NewSubscriberPolicyEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "NewSubscriberPolicyEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::BanLogicEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::BanLogicEnum")
+        :class => BanLogicEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "BanLogicEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::PostPasswordEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::PostPasswordEnum")
+        :class => PostPasswordEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "PostPasswordEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::NameRequiredEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::NameRequiredEnum")
+        :class => NameRequiredEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "NameRequiredEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::ScriptingLevelEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ScriptingLevelEnum")
+        :class => ScriptingLevelEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ScriptingLevelEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::SegmentTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SegmentTypeEnum")
+        :class => SegmentTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SegmentTypeEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::LoggingLevelEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::LoggingLevelEnum")
+        :class => LoggingLevelEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "LoggingLevelEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::AddHeadersAndFootersEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::AddHeadersAndFootersEnum")
+        :class => AddHeadersAndFootersEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "AddHeadersAndFootersEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::DocTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::DocTypeEnum")
+        :class => DocTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "DocTypeEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::EnableScriptingEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::EnableScriptingEnum")
+        :class => EnableScriptingEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "EnableScriptingEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::RecencyWhichEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::RecencyWhichEnum")
+        :class => RecencyWhichEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "RecencyWhichEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MailFormatEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailFormatEnum")
+        :class => MailFormatEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MailFormatEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::MailSectionEncodingEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailSectionEncodingEnum")
+        :class => MailSectionEncodingEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MailSectionEncodingEnum")
       )
 
       EncodedRegistry.register(
-        :class => Postal::Lmapi::FieldTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::FieldTypeEnum")
+        :class => FieldTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "FieldTypeEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::SimpleMailingStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SimpleMailingStruct"),
+        :class => SimpleMailingStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SimpleMailingStruct"),
         :schema_element => [
           ["subject", ["SOAP::SOAPString", XSD::QName.new(nil, "Subject")], [0, 1]],
           ["isHtmlSectionEncoded", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "IsHtmlSectionEncoded")], [0, 1]],
@@ -702,8 +702,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MessageStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MessageStruct"),
+        :class => MessageStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MessageStruct"),
         :schema_element => [
           ["recipientEmailsIn", ["Postal::Lmapi::ArrayOfstring", XSD::QName.new(nil, "RecipientEmailsIn")], [0, 1]],
           ["recipientMemberIDsIn", ["Postal::Lmapi::ArrayOfint", XSD::QName.new(nil, "RecipientMemberIDsIn")], [0, 1]],
@@ -715,8 +715,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::DocPart,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::DocPart"),
+        :class => DocPart,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "DocPart"),
         :schema_element => [
           ["body", ["SOAP::SOAPString", XSD::QName.new(nil, "Body")], [0, 1]],
           ["mimePartName", ["SOAP::SOAPString", XSD::QName.new(nil, "MimePartName")], [0, 1]],
@@ -726,8 +726,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ContentStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ContentStruct"),
+        :class => ContentStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ContentStruct"),
         :schema_element => [
           ["headerTo", ["SOAP::SOAPString", XSD::QName.new(nil, "HeaderTo")], [0, 1]],
           ["isTemplate", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "IsTemplate")], [0, 1]],
@@ -746,8 +746,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::UrlTrackingStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::UrlTrackingStruct"),
+        :class => UrlTrackingStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "UrlTrackingStruct"),
         :schema_element => [
           ["uniqueOpens", ["SOAP::SOAPString", XSD::QName.new(nil, "UniqueOpens")], [0, 1]],
           ["opens", ["SOAP::SOAPString", XSD::QName.new(nil, "Opens")], [0, 1]],
@@ -756,8 +756,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MemberStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberStruct"),
+        :class => MemberStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberStruct"),
         :schema_element => [
           ["additional", ["SOAP::SOAPString", XSD::QName.new(nil, "Additional")], [0, 1]],
           ["membershipKind", ["Postal::Lmapi::MemberKindEnum", XSD::QName.new(nil, "MembershipKind")], [0, 1]],
@@ -793,8 +793,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::CharSetStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::CharSetStruct"),
+        :class => CharSetStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "CharSetStruct"),
         :schema_element => [
           ["description", ["SOAP::SOAPString", XSD::QName.new(nil, "Description")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]],
@@ -803,8 +803,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::TinyMemberStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TinyMemberStruct"),
+        :class => TinyMemberStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "TinyMemberStruct"),
         :schema_element => [
           ["fullName", ["SOAP::SOAPString", XSD::QName.new(nil, "FullName")], [0, 1]],
           ["emailAddress", ["SOAP::SOAPString", XSD::QName.new(nil, "EmailAddress")], [0, 1]]
@@ -812,8 +812,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MailingStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailingStruct"),
+        :class => MailingStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MailingStruct"),
         :schema_element => [
           ["enableRecency", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "EnableRecency")], [0, 1]],
           ["isHtmlSectionEncoded", ["SOAP::SOAPBoolean", XSD::QName.new(nil, "IsHtmlSectionEncoded")], [0, 1]],
@@ -846,8 +846,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::SegmentStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SegmentStruct"),
+        :class => SegmentStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SegmentStruct"),
         :schema_element => [
           ["segmentID", ["SOAP::SOAPInt", XSD::QName.new(nil, "SegmentID")], [0, 1]],
           ["segmentName", ["SOAP::SOAPString", XSD::QName.new(nil, "SegmentName")], [0, 1]],
@@ -868,8 +868,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::TrackingSummaryStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TrackingSummaryStruct"),
+        :class => TrackingSummaryStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "TrackingSummaryStruct"),
         :schema_element => [
           ["transientFailure", ["SOAP::SOAPInt", XSD::QName.new(nil, "TransientFailure")], [0, 1]],
           ["success", ["SOAP::SOAPInt", XSD::QName.new(nil, "Success")], [0, 1]],
@@ -896,8 +896,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::SimpleMemberStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SimpleMemberStruct"),
+        :class => SimpleMemberStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SimpleMemberStruct"),
         :schema_element => [
           ["listName", ["SOAP::SOAPString", XSD::QName.new(nil, "ListName")], [0, 1]],
           ["memberID", ["SOAP::SOAPInt", XSD::QName.new(nil, "MemberID")], [0, 1]],
@@ -906,8 +906,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::KeyValueType,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::KeyValueType"),
+        :class => KeyValueType,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "KeyValueType"),
         :schema_element => [
           ["value", ["SOAP::SOAPString", XSD::QName.new(nil, "Value")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]]
@@ -915,8 +915,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ListStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ListStruct"),
+        :class => ListStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ListStruct"),
         :schema_element => [
           ["sMTPHeaders", ["SOAP::SOAPString", XSD::QName.new(nil, "SMTPHeaders")], [0, 1]],
           ["errHold", ["SOAP::SOAPInt", XSD::QName.new(nil, "ErrHold")], [0, 1]],
@@ -1026,8 +1026,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MemberBanStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberBanStruct"),
+        :class => MemberBanStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberBanStruct"),
         :schema_element => [
           ["domain", ["SOAP::SOAPString", XSD::QName.new(nil, "Domain")], [0, 1]],
           ["userName", ["SOAP::SOAPString", XSD::QName.new(nil, "UserName")], [0, 1]],
@@ -1038,8 +1038,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::TopicStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::TopicStruct"),
+        :class => TopicStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "TopicStruct"),
         :schema_element => [
           ["topicName", ["SOAP::SOAPString", XSD::QName.new(nil, "TopicName")], [0, 1]],
           ["topicDescription", ["SOAP::SOAPString", XSD::QName.new(nil, "TopicDescription")], [0, 1]],
@@ -1049,8 +1049,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::SiteStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SiteStruct"),
+        :class => SiteStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SiteStruct"),
         :schema_element => [
           ["siteID", ["SOAP::SOAPInt", XSD::QName.new(nil, "SiteID")], [0, 1]],
           ["siteName", ["SOAP::SOAPString", XSD::QName.new(nil, "SiteName")], [0, 1]],
@@ -1061,8 +1061,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::PreviewStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::PreviewStruct"),
+        :class => PreviewStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "PreviewStruct"),
         :schema_element => [
           ["textToMerge", ["SOAP::SOAPString", XSD::QName.new(nil, "TextToMerge")], [0, 1]],
           ["memberID", ["SOAP::SOAPInt", XSD::QName.new(nil, "MemberID")], [0, 1]],
@@ -1071,8 +1071,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ServerAdminStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ServerAdminStruct"),
+        :class => ServerAdminStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ServerAdminStruct"),
         :schema_element => [
           ["adminID", ["SOAP::SOAPInt", XSD::QName.new(nil, "AdminID")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]],
@@ -1082,8 +1082,8 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::SiteAdminStruct,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SiteAdminStruct"),
+        :class => SiteAdminStruct,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SiteAdminStruct"),
         :schema_element => [
           ["adminID", ["SOAP::SOAPInt", XSD::QName.new(nil, "AdminID")], [0, 1]],
           ["name", ["SOAP::SOAPString", XSD::QName.new(nil, "Name")], [0, 1]],
@@ -1094,143 +1094,143 @@ module Postal
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::LicenseLevelEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::LicenseLevelEnum")
+        :class => LicenseLevelEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "LicenseLevelEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ListTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ListTypeEnum")
+        :class => ListTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ListTypeEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MriVisibilityEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MriVisibilityEnum")
+        :class => MriVisibilityEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MriVisibilityEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MemberStatusEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberStatusEnum")
+        :class => MemberStatusEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberStatusEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MessageTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MessageTypeEnum")
+        :class => MessageTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MessageTypeEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ModeratedEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ModeratedEnum")
+        :class => ModeratedEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ModeratedEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ConferenceVisibilityEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConferenceVisibilityEnum")
+        :class => ConferenceVisibilityEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConferenceVisibilityEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ConferencePostEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConferencePostEnum")
+        :class => ConferencePostEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConferencePostEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ConferenceDurationEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConferenceDurationEnum")
+        :class => ConferenceDurationEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConferenceDurationEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ConfirmUnsubEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ConfirmUnsubEnum")
+        :class => ConfirmUnsubEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ConfirmUnsubEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::PasswordRequiredEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::PasswordRequiredEnum")
+        :class => PasswordRequiredEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "PasswordRequiredEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MemberListSecurityEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberListSecurityEnum")
+        :class => MemberListSecurityEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberListSecurityEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::RecencyOperatorEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::RecencyOperatorEnum")
+        :class => RecencyOperatorEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "RecencyOperatorEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MemberKindEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MemberKindEnum")
+        :class => MemberKindEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MemberKindEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::NewSubscriberPolicyEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::NewSubscriberPolicyEnum")
+        :class => NewSubscriberPolicyEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "NewSubscriberPolicyEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::BanLogicEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::BanLogicEnum")
+        :class => BanLogicEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "BanLogicEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::PostPasswordEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::PostPasswordEnum")
+        :class => PostPasswordEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "PostPasswordEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::NameRequiredEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::NameRequiredEnum")
+        :class => NameRequiredEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "NameRequiredEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::ScriptingLevelEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::ScriptingLevelEnum")
+        :class => ScriptingLevelEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "ScriptingLevelEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::SegmentTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::SegmentTypeEnum")
+        :class => SegmentTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "SegmentTypeEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::LoggingLevelEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::LoggingLevelEnum")
+        :class => LoggingLevelEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "LoggingLevelEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::AddHeadersAndFootersEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::AddHeadersAndFootersEnum")
+        :class => AddHeadersAndFootersEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "AddHeadersAndFootersEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::DocTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::DocTypeEnum")
+        :class => DocTypeEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "DocTypeEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::EnableScriptingEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::EnableScriptingEnum")
+        :class => EnableScriptingEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "EnableScriptingEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::RecencyWhichEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::RecencyWhichEnum")
+        :class => RecencyWhichEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "RecencyWhichEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MailFormatEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailFormatEnum")
+        :class => MailFormatEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MailFormatEnum")
       )
 
       LiteralRegistry.register(
-        :class => Postal::Lmapi::MailSectionEncodingEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::MailSectionEncodingEnum")
+        :class => MailSectionEncodingEnum,
+        :schema_type => XSD::QName.new(NsNs1Xsd, "MailSectionEncodingEnum")
       )
 
       LiteralRegistry.register(
         :class => FieldTypeEnum,
-        :schema_type => XSD::QName.new(NsNs1Xsd, "Postal::Lmapi::FieldTypeEnum")
+        :schema_type => XSD::QName.new(NsNs1Xsd, "FieldTypeEnum")
       )
     end
   end

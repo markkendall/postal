@@ -4,7 +4,7 @@
 #   username: username@company.com
 #   password: company123
 #   wsdl: http://mail.company.com:82/?wsdl
-#   list: company-sample
+#   list_name: company-sample
 #   valid_email: me@company.com    (used to test mailings so put in a real email address)
 #   from: The Company <noreply@company.com>    (used as the From: for those real test mailings)
 
@@ -12,7 +12,7 @@ config:
   username: username@company.com
   password: company123
   wsdl: http://mail.company.com:82/?wsdl
-  list: company-sample
+  list_name: company-sample
   valid_email: me@company.com
   from: The Company <noreply@company.com>
   

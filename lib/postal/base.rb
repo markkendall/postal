@@ -23,6 +23,7 @@ module Postal
       def create(*args)
         instance = self.new(*args)
         instance.save
+        return instance
       end
       
       
@@ -30,27 +31,15 @@ module Postal
       def create!(*args)
         instance = self.new(*args)
         instance.save!
+        return instance
       end
       
       
-      # returns the list name for a list whether it's a string or list object
-      def get_list_name(obj)
-        if obj.is_a? ::Array
-          return obj.first.listName
-        else
-          return obj
-        end
-      end
-      
-
-
-
       private
       
         def extract_options(opts)
           opts.last.is_a?(::Hash) ? opts.pop : {}
         end
-        
         
     end
     

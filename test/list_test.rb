@@ -10,7 +10,7 @@ class ListTest < Test::Unit::TestCase
   
   # lists
   def test_can_find_list_that_exists
-    assert Postal::List.find(@config['list'])
+    assert Postal::List.find(@config['list_name'])
   end
   
   def test_returns_nil_if_list_not_found

@@ -5,9 +5,8 @@ require 'logger'
 
 # internal
 require 'postal/lmapi/lmapi.rb'
-require 'postal/lmapi/lmapiDriver.rb'
-require 'postal/lmapi/lmapiMappingRegistry.rb'
-# Dir.glob(File.expand_path('lib/postal/lmapi/*')).each { |path| require File.expand_path(path) }
+require 'postal/lmapi/lmapi_driver.rb'
+require 'postal/lmapi/lmapi_mapping_registry.rb'
 require 'postal/base'
 require 'postal/list'
 require 'postal/member'

@@ -19,7 +19,7 @@ module Postal
                           :html_section_encoding => nil, 
                           :is_html_section_encoded => nil, 
                           :is_text_section_encoded => nil,
-                          :list => nil,
+                          :list_name => nil,
                           :recency_number_of_mailings => nil,
                           :recency_which => nil,
                           :reply_to => nil,
@@ -47,7 +47,7 @@ module Postal
                   :html_section_encoding, 
                   :is_html_section_encoded, 
                   :is_text_section_encoded,
-                  :list,
+                  :list_name,
                   :recency_number_of_mailings,
                   :recency_which,
                   :reply_to,
@@ -79,7 +79,7 @@ module Postal
       @html_section_encoding = args[:html_section_encoding] 
       @is_html_section_encoded = args[:is_html_section_encoded] 
       @is_text_section_encoded = args[:is_text_section_encoded]
-      @list = args[:list]
+      @list_name = args[:list_name]
       @recency_number_of_mailings = args[:recency_number_of_mailings]
       @recency_which = args[:recency_which]
       @reply_to = args[:reply_to]
@@ -99,7 +99,6 @@ module Postal
     # Send the mailing
     def send
       if valid?
-        list = Mailing.get_list_name(@list)
         mail = Postal::Lmapi::MailingStruct.new(:additionalHeaders => @additional_headers, 
                                                 :attachments => @attachments, 
                                                 :bypassModeration => @bypass_moderation, 
@@ -113,7 +112,7 @@ module Postal
                                                 :htmlSectionEncoding => @html_section_encoding, 
                                                 :isHtmlSectionEncoded => @is_html_section_encoded, 
                                                 :isTextSectionEncoded => @is_text_section_encoded,
-                                                :listName => list,
+                                                :listName => @list_name,
                                                 :recencyNumberOfMailings => @recency_number_of_mailings,
                                                 :recencyWhich => @recency_which,
                                                 :replyTo => @reply_to,
@@ -165,8 +164,7 @@ module Postal
     
     # Determines whether we have everything we need to send an email
     def validate
-      # puts list.inspect
-      return (@list && @to && @subject) ? true : false
+      return (@list_name && @to && @subject) ? true : false
     end
     
   end
