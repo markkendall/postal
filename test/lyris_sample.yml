@@ -1,7 +1,8 @@
 # This is the Lyris config for your tests.  This runs your test against a real Lyris implementation, so make sure
 # you're using a test list that won't mind having tons of users added and subtracted on a regular basis.
 #
-#   valid_email => when testing mailings, this is where they will be sent to
+#   email_in_list => when testing mailings, this is where they will be sent to (this user is on your list)
+#   email_not_in_list => another test email, but this email address isn't in your list
 #   from: => used as the From: for those test mailings
 
 config:
@@ -9,6 +10,7 @@ config:
   password: company123
   wsdl: http://mail.company.com:82/?wsdl
   list_name: company-sample
-  valid_email: me@company.com
+  email_in_list: me@company.com
+  email_not_in_list: other@somewhere.com
   from: The Company <noreply@company.com>
   

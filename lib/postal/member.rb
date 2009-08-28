@@ -3,30 +3,41 @@ module Postal
     
     class << self
       
-      def find_by_filter(args)
+      def find_by_filter(*args)
+        unless args.find { |arg| arg.match(/ListName/) }
+          args << "ListName=#{Postal.options[:list_name]}"
+        end
         return Postal.driver.selectMembers(args)
       end
       
       
       # Will NOT let you delete the entire list's members (only pass a ListName) Returns the number of members that were deleted, or nil if none were
-      def destroy(args)
-        raise Postal::WouldDeleteAllMembers, 'Not passing any parameters (other than ListName) to this method will delete ALL members of a list. If you really want to delete all members of this list, use destroy! instead.' if args.to_a.size == 1 && args.to_a.first.match(/ListName/)
+      def destroy(*args)
+        unless args.find { |arg| arg.match(/ListName/) }
+          args << "ListName=#{Postal.options[:list_name]}"
+        end
+        # raise Postal::WouldDeleteAllMembers, 'Not passing any parameters (other than ListName) to this method will delete ALL members of a list. If you really want to delete all members of this list, use destroy! instead.' if args.to_a.size == 1 && args.to_a.first.match(/ListName/)
         return Postal.driver.deleteMembers(args)
       end
       
       
       # WILL let you delete an entire list's members (only pass a ListName). Returns the number of members that were deleted, or nil if none were
-      def destroy!(args)
-        return Postal.driver.deleteMembers(args)
-      end
+      # def destroy!(*args)
+      #   return Postal.driver.deleteMembers(args)
+      # end
       
       
       protected
       
         def find_by_email(args,options)
-          list_name = args.last
-          member_id = 0
+          if args.size == 1
+            list_name = Postal.options[:list_name]
+          else
+            list_name = args.last
+          end
           email = args.first
+          member_id = 0
+
           begin
             return Postal.driver.getMemberID(Postal::Lmapi::SimpleMemberStruct.new(list_name,member_id,email))
           rescue SOAP::FaultError
@@ -55,17 +66,19 @@ module Postal
       
     end
     
-    DEFAULT_ATTRIBUTES = { :id => nil, :email => nil, :name => nil, :list_name => nil, :demographics => nil }
+    DEFAULT_ATTRIBUTES = { :id => nil, :email => nil, :name => nil, :list_name => nil, :demographics => {} }
     
     attr_accessor :id, :email, :name, :list_name, :demographics
     
+    
     # Create a new member instance
-    def initialize(email,name,list_name,demographics={})
-      @id = nil
-      @email = email
-      @name = name
-      @list_name = list_name
-      @demographics = demographics
+    def initialize(attributes={})
+      attributes = DEFAULT_ATTRIBUTES.merge(attributes)
+      @id = attributes[:id]
+      @email = attributes[:email]
+      @name = attributes[:name]
+      @list_name = attributes[:list_name] || Postal.options[:list_name]
+      @demographics = attributes[:demographics]
     end
     
     

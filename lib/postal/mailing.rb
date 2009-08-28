@@ -79,7 +79,7 @@ module Postal
       @html_section_encoding = args[:html_section_encoding] 
       @is_html_section_encoded = args[:is_html_section_encoded] 
       @is_text_section_encoded = args[:is_text_section_encoded]
-      @list_name = args[:list_name]
+      @list_name = args[:list_name] || Postal.options[:list_name]
       @recency_number_of_mailings = args[:recency_number_of_mailings]
       @recency_which = args[:recency_which]
       @reply_to = args[:reply_to]

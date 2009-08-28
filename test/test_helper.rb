@@ -13,10 +13,11 @@ class Test::Unit::TestCase
     Postal.options[:wsdl] = @config['wsdl']
     Postal.options[:username] = @config['username']
     Postal.options[:password] = @config['password']
+    Postal.options[:list_name] = @config['list_name']
   end
   
   def delete_test_members
-    Postal::Member.destroy(["ListName=#{@config['list_name']}",'EmailAddress like john.doe%'])
+    Postal::Member.destroy('EmailAddress like john.doe%')
   end
   
 end
