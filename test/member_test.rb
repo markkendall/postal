@@ -1,27 +1,15 @@
 require 'test_helper'
 
-class PostalTest < Test::Unit::TestCase
+class MemberTest < Test::Unit::TestCase
   
   @config = nil
 
   def setup
-    @config = YAML.load(File.read('lyris.yml'))['config']
-    Postal.options[:wsdl] = @config['wsdl']
-    Postal.options[:username] = @config['username']
-    Postal.options[:password] = @config['password']
+    load_config
   end
   
   def teardown
-    Postal::Member.destroy(["ListName=#{@config['list']}",'EmailAddress like john.doe%'])
-  end
-  
-  # lists
-  def test_can_find_list_that_exists
-    assert Postal::List.find(@config['list'])
-  end
-  
-  def test_returns_nil_if_list_not_found
-    assert_nil Postal::List.find('foo')
+    delete_test_members
   end
   
   # members
@@ -65,40 +53,6 @@ class PostalTest < Test::Unit::TestCase
   def test_can_find_member_by_filters
     Postal::Member.create("john.doe#{rand(1000000)}@anonymous.com","John Doe", @config['list'])
     assert Postal::Member.find_by_filter(["ListName=#{@config['list']}",'EmailAddress like john.doe%'])
-  end
-  
-  def test_can_send_valid_mailing
-    mail = Postal::Mailing.new( :to => @config['valid_email'], 
-                                :html_message => "<p>Test from postal_test.rb at #{Time.now.to_s}</p>", 
-                                :text_message => 'Test from postal_test.rb at #{Time.now.to_s}', 
-                                :from => @config['from'],
-                                :list => @config['list'],
-                                :subject => 'postal_test.rb')
-    assert mail.valid?
-    assert mail.send
-  end
-  
-  def test_can_send_mailing_after_making_valid
-    mail = Postal::Mailing.new( :to => @config['valid_email'], 
-                                :html_message => "<p>Test from postal_test.rb at #{Time.now.to_s}</p>", 
-                                :text_message => 'Test from postal_test.rb at #{Time.now.to_s}', 
-                                :from => @config['from'] )
-    assert !mail.valid?
-    mail.list = @config['list']
-    assert !mail.valid?
-    mail.subject = 'postal_test.rb'
-    assert mail.valid?
-    assert mail.send
-  end
-  
-  def test_cannot_send_invalid_mailing
-    mail = Postal::Mailing.new( :to => @config['valid_email'], 
-                                :html_message => "<p>Test from postal_test.rb at #{Time.now.to_s}</p>", 
-                                :text_message => 'Test from postal_test.rb at #{Time.now.to_s}', 
-                                :from => @config['from'] )
-    assert !mail.valid?
-    assert !mail.send
-    assert_raises(Postal::CouldNotSendMailing) { mail.send! }
   end
   
 end
