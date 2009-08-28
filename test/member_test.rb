@@ -60,7 +60,9 @@ class MemberTest < Test::Unit::TestCase
   
   def test_can_find_member_by_filters
     Postal::Member.create(:email => "john.doe#{rand(1000000)}@anonymous.com", :name => "John Doe")
-    assert Postal::Member.find_by_filter('EmailAddress like john.doe%')
+    Postal::Member.create(:email => "john.doe#{rand(1000000)}@anonymous.com", :name => "John Doe 2")
+    assert members = Postal::Member.find_by_filter('EmailAddress like john.doe%')
+    assert_equal members.size, 2
     assert Postal::Member.find_by_filter("ListName=#{@config['list_name']}",'EmailAddress like john.doe%')  # with explicit list_name
   end
   
@@ -80,8 +82,8 @@ class MemberTest < Test::Unit::TestCase
   def test_can_create_find_and_update_member
     Postal::Member.create(:email => "john.doe#{rand(1000000)}@anonymous.com", :name => "John Doe")
     assert member = Postal::Member.find_by_filter('EmailAddress like john.doe%')
-    assert member.first.update_attributes(:field_0 => 'Baseball')
-    assert_equal Postal::Member.find_by_filter('EmailAddress like john.doe%').first.demographics[:field_0], 'Baseball'
+    assert member.update_attributes(:field_0 => 'Baseball')
+    assert_equal Postal::Member.find_by_filter('EmailAddress like john.doe%').demographics[:field_0], 'Baseball'
   end
   
 end

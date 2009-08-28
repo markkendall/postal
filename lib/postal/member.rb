@@ -7,13 +7,16 @@ module Postal
         unless args.find { |arg| arg.match(/ListName/) }
           args << "ListName=#{Postal.options[:list_name]}"
         end
-        if members = Postal.driver.selectMembers(args)
-          members.collect do |member|
+        if soap_members = Postal.driver.selectMembers(args)
+          members = soap_members.collect do |member|
             demographics = {}
-            member.demographics.each do |demo|
-              demographics.merge!({ demo.name.to_sym => demo.value })
-            end
+            member.demographics.each { |demo| demographics.merge!({ demo.name.to_sym => demo.value }) }
             Member.new(:email => member.emailAddress, :name => member.fullName, :id => member.memberID, :list_name => member.listName, :demographics => demographics)
+          end
+          if members.size == 1
+            return members.first
+          else
+            return members
           end
         else
           return nil
