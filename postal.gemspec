@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/postal/lmapi/lmapi_mapping_registry.rb",
      "lib/postal/mailing.rb",
      "lib/postal/member.rb",
+     "postal.gemspec",
      "test/list_test.rb",
      "test/lmapiClient.rb",
      "test/lyris_sample.yml",
