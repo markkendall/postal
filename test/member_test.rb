@@ -76,5 +76,12 @@ class MemberTest < Test::Unit::TestCase
     Postal::Member.destroy("ListName=#{@config['list_name']}","EmailAddress like john.doe-delete%")
     assert !Postal::Member.find(new_member.email)
   end
-
+  
+  def test_can_create_find_and_update_member
+    Postal::Member.create(:email => "john.doe#{rand(1000000)}@anonymous.com", :name => "John Doe")
+    assert member = Postal::Member.find_by_filter('EmailAddress like john.doe%')
+    assert member.first.update_attributes(:field_0 => 'Baseball')
+    assert_equal Postal::Member.find_by_filter('EmailAddress like john.doe%').first.demographics[:field_0], 'Baseball'
+  end
+  
 end
