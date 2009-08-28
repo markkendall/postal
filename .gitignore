@@ -5,3 +5,4 @@ rdoc
 pkg
 test/run*.rb
 run*.rb
+test/lyris.yml

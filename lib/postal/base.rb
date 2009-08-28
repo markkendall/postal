@@ -35,8 +35,7 @@ module Postal
       
       # returns the list name for a list whether it's a string or list object
       def get_list_name(obj)
-        case obj
-        when ArrayOfListStruct
+        if obj.is_a? ::Array
           return obj.first.listName
         else
           return obj

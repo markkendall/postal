@@ -4,8 +4,10 @@ $:.unshift File.dirname(__FILE__) # for use/testing when no gem is installed
 require 'logger'
 
 # internal
-Dir.glob(File.expand_path('lib/postal/lmapi/*')).each { |path| require File.expand_path(path) }
-require 'postal/driver'
+require 'postal/lmapi/lmapi.rb'
+require 'postal/lmapi/lmapiDriver.rb'
+require 'postal/lmapi/lmapiMappingRegistry.rb'
+# Dir.glob(File.expand_path('lib/postal/lmapi/*')).each { |path| require File.expand_path(path) }
 require 'postal/base'
 require 'postal/list'
 require 'postal/member'
@@ -27,14 +29,17 @@ module Postal
   @options = {  :wsdl => nil, 
                 :username => nil, 
                 :password => nil }
-                
+  @driver = nil
+  
   attr_accessor :options
   
   # Make a driver instance available at Postal.driver
   def driver
-    driver = LmapiSoap.new
-    driver.options['protocol.http.basic_auth'] << [@options[:wsdl], @options[:username], @options[:password]]
-    return driver
+    unless @driver
+      @driver = Postal::Lmapi::Soap.new
+      @driver.options['protocol.http.basic_auth'] << [@options[:wsdl], @options[:username], @options[:password]]
+    end
+    return @driver
   end
   
   # make @options available so it can be set externally when using the library

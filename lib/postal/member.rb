@@ -8,12 +8,14 @@ module Postal
       end
       
       
+      # Will NOT let you delete the entire list's members (only pass a ListName) Returns the number of members that were deleted, or nil if none were
       def destroy(args)
         raise Postal::WouldDeleteAllMembers, 'Not passing any parameters (other than ListName) to this method will delete ALL members of a list. If you really want to delete all members of this list, use destroy! instead.' if args.to_a.size == 1 && args.to_a.first.match(/ListName/)
         return Postal.driver.deleteMembers(args)
       end
       
       
+      # WILL let you delete an entire list's members (only pass a ListName). Returns the number of members that were deleted, or nil if none were
       def destroy!(args)
         return Postal.driver.deleteMembers(args)
       end
@@ -25,7 +27,7 @@ module Postal
           list = get_list_name(args.last)
           member_id = 0
           email = args.first
-          return Postal.driver.getMemberID(SimpleMemberStruct.new(list,member_id,email))
+          return Postal.driver.getMemberID(Postal::Lmapi::SimpleMemberStruct.new(list,member_id,email))
         end
       
       
@@ -37,7 +39,6 @@ module Postal
       
         # Find one or more members by name
         def find_some(args,options={})
-          puts args.first.class
           case args.first
           when ::String
             find_by_email(args,options)
@@ -72,8 +73,8 @@ module Postal
         @id = Postal.driver.createSingleMember(@email, @name, list)
         update_attributes(@demographics) unless @demographics.empty?
         return @id
-      #rescue SOAP::FaultError
-      #  return false
+      rescue SOAP::FaultError
+        return false
       end
     end
     
@@ -92,7 +93,7 @@ module Postal
     def update_attributes(attributes={})
       list = Member.get_list_name(@list)
       demos = attributes.collect { |key,value| { key => value } }
-      member = SimpleMemberStruct.new(list, @id, @email)
+      member = Postal::SimpleMemberStruct.new(list, @id, @email)
       return Postal.driver.updateMemberDemographics(member,demos)
     end
     
