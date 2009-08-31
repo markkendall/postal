@@ -50,6 +50,7 @@ Gem::Specification.new do |s|
      "test/postal_suite.rb",
      "test/test_helper.rb"
   ]
+  s.add_dependency('soap4r', '>= 1.5.8')
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
