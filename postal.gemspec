@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{postal}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rob Cameron"]
-  s.date = %q{2009-08-28}
+  s.date = %q{2009-08-31}
   s.description = %q{Lyris is an enterprise email service. Postal makes it easy for Ruby to talk to Lyris's API.}
   s.email = %q{cannikinn@gmail.com}
   s.extra_rdoc_files = [
@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/cannikin/postal}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Gem for talking to the Lyris API}
   s.test_files = [
     "test/list_test.rb",
@@ -50,7 +50,6 @@ Gem::Specification.new do |s|
      "test/postal_suite.rb",
      "test/test_helper.rb"
   ]
-  s.add_dependency('soap4r', '>= 1.5.8')
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
