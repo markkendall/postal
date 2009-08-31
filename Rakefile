@@ -10,6 +10,7 @@ begin
     gem.email = "cannikinn@gmail.com"
     gem.homepage = "http://github.com/cannikin/postal"
     gem.authors = ["Rob Cameron"]
+    gem.add_dependency('soap4r','>= 1.5.8')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
